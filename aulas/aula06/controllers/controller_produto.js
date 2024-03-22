@@ -23,6 +23,15 @@ function buscarPeloId(req, res, next) {
 
 }
 
+function validarDados(req, res, next) {
+    const { nome, preco } = req.body
+    if (nome && preco) {
+        next()
+    } else {
+        res.status(422).json({ msg: "Dados invalidos." })
+    }
+}
+
 function criar(req, res) {
     const { nome, preco } = req.body
 
@@ -59,4 +68,4 @@ function remover(req, res) {
     }
 }
 
-module.exports = { listarTodos, buscarPeloId, criar, atualizar, remover, exibir }
+module.exports = { listarTodos, buscarPeloId, criar, atualizar, remover, exibir, validarDados }
