@@ -1,17 +1,36 @@
 {
 
   "name": "ads-nodejs1",
+
   "version": "1.0.1",
 
   "description": "",
+
   "main": "index.js",
+
   "scripts": {
+
     "test": "echo \"Error: no test specified\" && exit 1"
+
   },
+
   "keywords": [],
+
   "author": "",
+
   "license": "ISC",
+
   "devDependencies": {
+
     "nodemon": "^3.1.0"
+
+  },
+
+  "dependencies": {
+
+    "express-generator": "^4.16.1"
+
   }
+
 }
+
