@@ -8,6 +8,6 @@ router.post('/', controllerProdutos.validarDados, controllerProdutos.criar );
 
 router.get("/", controllerProdutos.obterTodos);
 
-router.get("/:id", (req, res) => res.json({}));
+router.get("/:id", controllerProdutos.obter);
 
 module.exports = router;

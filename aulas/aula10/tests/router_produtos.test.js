@@ -35,5 +35,8 @@ describe('API Loja Virtual', () => {
         const response = await request.get(`/produtos/${id}`);
         expect(response.status).toBe(200);
         expect(response.type).toBe("application/json");
+        expect(response.body.produto).toHaveProperty('nome')
+        expect(response.body.produto).toHaveProperty('preco')
+        expect(response.body.produto).toHaveProperty('quantidade')
     });
 });
