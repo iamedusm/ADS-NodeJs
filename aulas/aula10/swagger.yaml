@@ -34,22 +34,73 @@ paths:
             application/json::
               schema:
                 $ref: '#/components/schemas/ArrayOfProdutos'
+        400:
+          content:
+            application/json::
+              schema:
+                $ref: '#/components/schemas/ArrayOfProdutos'
+        404:
+          content:
+            application/json::
+              schema:
+                $ref: '#/components/schemas/ArrayOfProdutos'
   /produtos/{id}:
-    get:
-      summary: Retorna um produto especifico
-      tags:
-        - produtos
-      parameters:
-        - in: path
-          type: string
-          name: id
-          required: true
-      responses:
-        200:
+      get:
+        tags:
+          - produtos
+        parameters:
+          - in: path
+            type: string
+            name: id
+        responses:
+          200:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Produto'
+          400:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Mensagem'
+          404:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Mensagem'
+      put:
+        tags:
+          - produtos
+        parameters:
+          - in: path
+            type: string
+            name: id
+        requestBody:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArrayOfProdutos'
+                $ref: "#/components/schemas/Produto"
+        responses:
+          200:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Produto'
+          400:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Produto'
+          404:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Produto'
+          422:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Produto'
 components:
   schemas:
     ArrayOfProdutos:
